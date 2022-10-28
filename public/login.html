@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="btnBack">
+          <img src="assets/arrowBack.svg" alt="" onclick="voltarPagina()" />
+        </div>
+
+        <div class="contentBox">
+          <div class="formBox">
+            <div class="header">
+              <h2>Boas Vindas</h2>
+              <p class="subtitle">Efetue o login para continuar</p>
+            </div>
+            <form action="">
+              <!-- <span>Usuário</span> -->
+              <div class="inputBox border">
+                <img src="assets/login/personLogin.svg" alt="" />
+                <input
+                  id="inputUsuario"
+                  type="text"
+                  name=""
+                  placeholder="Usuário"
+                  onblur="validarUsuario()"
+                  required
+                />
+                <span id="spanErrorUser"
+                  >Insira uma senha com caracteres especiais</span
+                >
+              </div>
+              <div class="inputBox border">
+                <img src="assets/login/keyLogin.svg" alt="" />
+                <input
+                  type="password"
+                  name=""
+                  id="inputSenha"
+                  placeholder="Senha"
+                  onblur="validarSenha()"
+                  required
+                />
+                <img
+                  id="btnVisibility"
+                  class="visibility"
+                  onclick="mostrarSenha()"
+                  src="assets/login/visibilityLogin.svg"
+                  alt=""
+                />
+                <span id="spanErrorPassword"
+                  >Insira uma senha com caracteres especiais</span
+                >
+              </div>
+              <div class="remember">
+                <span>Lembre-me</span>
+                <img
+                  id="imgCheck"
+                  src="assets/login/unchecked.png"
+                  width="25px"
+                  onclick="lembrarSenha()"
+                  alt=""
+                />
+              </div>
+              <div class="inputBox">
+                  <input onclick="entrar()" type="button" value="Entrar" />
+              </div>
+
+              <div class="inputBox">
+                <span class="cadastrar"
+                  >Não tem conta? Cadastre-se clicando
+                  <a href="cadastro.html"> aqui.</a></span
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+<script src="js/sign.js"></script>
+<script src="js/validacao.js"></script>
+
+<script>
+
+
+  function entrar() {
+      // aguardar();
+
+      var userVar = inputUsuario.value;
+      var senhaVar = inputSenha.value;
+
+      // if (userVar == "" || senhaVar == "") {
+      //     cardErro.style.display = "block"
+      //     mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      //     finalizarAguardar();
+      //     return false;
+      // }
+      // else {
+      //     setInterval(sumirMensagem, 5000)
+      // }
+
+      console.log("FORM LOGIN: ", userVar);
+      console.log("FORM SENHA: ", senhaVar);
+
+      fetch("/usuarios/autenticar", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              userServer: userVar,
+              senhaServer: senhaVar
+          })
+      }).then(function (resposta) {
+          console.log("ESTOU NO THEN DO entrar()!")
+
+          if (resposta.ok) {
+              console.log(resposta);
+
+              resposta.json().then(json => {
+                  console.log(json);
+                  console.log(JSON.stringify(json));
+
+                  sessionStorage.USER_USUARIO = json.username;
+                  sessionStorage.NOME_USUARIO = json.nome;
+                  sessionStorage.ID_USUARIO = json.id;
+
+                  setTimeout(function () {
+                      window.location = "./dashboard/cards.html";
+                  }, 1000); // apenas para exibir o loading
+
+              });
+
+          } else {
+
+              console.log("Houve um erro ao tentar realizar o login!");
+
+              resposta.text().then(texto => {
+                  console.error(texto);
+                  // finalizarAguardar(texto);
+              });
+          }
+
+      }).catch(function (erro) {
+          console.log(erro);
+      })
+
+      return false;
+  }
+
+  function sumirMensagem() {
+      cardErro.style.display = "none"
+  }
+
+</script>

@@ -1,0 +1,19 @@
+{
+  "name": "arena-jovem",
+  "version": "1.0.0",
+  "description": "Aplication 'Arena Jovem'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabs-mvb/Arena-Jovem.git"
+  },
+  "author": "gabs-mvb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabs-mvb/Arena-Jovem/issues"
+  },
+  "homepage": "https://github.com/gabs-mvb/Arena-Jovem#readme"
+}

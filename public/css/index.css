@@ -1,0 +1,488 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+video {
+    width: 100%;
+}
+
+.retangulo {
+    display: flex;
+    position: relative;
+    top: -1vh;
+}
+
+.ondas {
+    display: flex;
+    position: relative;
+    top: -50vh;
+}
+
+.onda-1 {
+    position: absolute;
+    z-index: 1;
+    top: -9vh;
+}
+
+.onda-2 {
+    position: absolute;
+    z-index: 2;
+    top: -5vh;
+}
+
+.onda-3 {
+    position: absolute;
+    z-index: 3;
+    top: 8vh;
+}
+
+.meta-1 {
+    position: absolute;
+    left: 69vh;
+    top: -15vh;
+    z-index: 4;
+    width: 60vh;
+}
+
+.meta-2 {
+    position: absolute;
+    left: 135vh;
+    top: 4vh;
+    z-index: 5;
+    width: 60vh;
+}
+
+.meta-3 {
+    position: absolute;
+    left: 2vh;
+    top: 4vh;
+    z-index: 5;
+    width: 60vh;
+}
+
+.titulo-1 {
+    position: absolute;
+    left: 82vh;
+    top: 34vh;
+    z-index: 5;
+    width: 26vw;
+}
+
+.titulo-2 {
+    position: absolute;
+    left: 147vh;
+    top: 52vh;
+    z-index: 5;
+    width: 26vw;
+}
+
+.titulo-3 {
+    position: absolute;
+    left: 19vh;
+    top: 52vh;
+    z-index: 5;
+    width: 26vw;
+}
+
+
+.estilo-titulo {
+    font-weight: bold;
+    color: #000D27;
+}
+
+
+.texto-1 {
+    position: absolute;
+    left: 81vh;
+    top: 42vh;
+    z-index: 5;
+    width: 21vw;
+}
+
+.texto-2 {
+    position: absolute;
+    left: 148vh;
+    top: 60vh;
+    z-index: 5;
+    width: 21vw;
+}
+
+.texto-3 {
+    position: absolute;
+    left: 18vh;
+    top: 60vh;
+    z-index: 5;
+    width: 20vw;
+}
+
+.estilo-texto {
+    font-size: 1.4rem;
+    font-weight: bolder;
+    color: #000D27;
+}
+
+
+/*-------- SOBRE NÓS -----------*/
+
+#main-2 {
+    margin-top: 50vh;
+}
+
+.secao-sobre-nos {
+    display: flex;
+    width: 100%;
+    height: 50vh;
+}
+
+.sobre-nos {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    border-radius: 0px 20px 20px 0px;
+    background-color: #010B21;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+}
+
+.titulo-e-barra {
+    display: flex;
+    margin-top: 4vh;
+    width: 80%;
+    align-items: center;
+}
+
+.barras-top {
+    display: flex;
+    flex-direction: column;
+    right: 100vh;
+    width: 50%;
+    margin-top: 20vh;
+    margin-bottom: 10vh;
+
+}
+
+.barra-1-top {
+    background-color: #EAB200;
+    margin-left: 64.2vw;
+    margin-right: 0;
+    width: 70%;
+    height: 1vh;
+    border-radius: 4px 0px 0px 4px;
+    margin-top: -2vh;
+}
+
+.barra-2-top {
+    background-color: #EAB200;
+    margin-left: 54.2vw;
+    margin-right: 0;
+    width: 90%;
+    height: 1vh;
+    border-radius: 4px 0px 0px 4px;
+    margin-top: -6vh;
+}
+
+.barra-1 {
+    background-color: #EAB200;
+    width: 70%;
+    height: 1vh;
+    border-radius: 4px;
+    margin-top: 1.4vh;
+}
+
+.barra-2 {
+    background-color: #EAB200;
+    width: 90%;
+    height: 1vh;
+    border-radius: 0px 4px 4px 0px;
+    margin-top: 5vh;
+}
+
+
+.titulo-e-barra h1 {
+    font-size: 2.9rem;
+    margin-left: 2.8vw;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    margin-right: 1.5vw;
+}
+
+.texto-sobre-nos {
+    display: flex;
+    width: 80%;
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding: 10vh;
+    margin-right: 4vw;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+}
+
+
+.secao-sobre-nos-dois {
+    display: flex;
+    width: 100%;
+    height: 70vh;
+}
+
+
+.texto-secao-dois {
+    width: 30%;
+    height: 70vh;
+    background-color: #182F62;
+    border-radius: 20px;
+    position: absolute;
+    top: 240vh;
+    right: 25vh;
+    text-align: center;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+}
+
+.texto-secao-dois p {
+    text-align: center;
+    font-size: 1.7rem;
+    width: 19vw;
+    color: #ffffff;
+    margin: 19vh auto;
+}
+
+
+.barras {
+    display: flex;
+    flex-direction: column;
+    right: 100vh;
+    width: 50%;
+    margin-top: 25vh;
+
+}
+
+.foto-prateleira-1 {
+    display: flex;
+    width: 30vw;
+    height: 15vh;
+}
+
+.secao-video-prateleira {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 200px;
+}
+
+.prateleira-pasta {
+    width: 50%;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.6);
+}
+
+
+.barras-video-prateleira-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+.secao-video-prateleira p {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 12%;
+    background-color: #182F62;
+    color: #ffffff;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    margin-top: 5vh;
+}
+
+
+.secao-video-prateleira-garrafas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    margin-bottom: 200px;
+}
+
+.secao-video-prateleira-garrafas p {
+    font-size: 2rem;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    padding: 14%;
+    background-color: #182F62;
+    color: #ffffff;
+}
+
+.prateleira-garrafas {
+    width: 50%;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.6);
+}
+
+
+/*DEFINIÇÕES DA DIV (NOSSO TIME)*/
+.nosso-time {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    padding: 2vh;
+    justify-content: center;
+    background-color: #1c2532;
+    border-bottom: 5px solid #EAB200;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 2vh;
+}
+
+/*COR DO TEXTO 'NOSSO TIME'*/
+.nosso-time h1 {
+    color: #f1f1f1
+}
+
+/* SECTION MAIN NOSSO TIME*/
+.secao-nosso-time {
+    width: 100%;
+    height: 100%;
+}
+
+/*DIV QUE ENGLOBA OS CARDS*/
+.cards {
+    display: flex;
+    width: 100%;
+    height: 40vh;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 14vh;
+    perspective: 2000px;
+    margin-bottom: 20vh;
+}
+
+/* DIV DOS CARDS */
+.thecard {
+    margin-left: 2.5vh;
+    width: 15vw;
+    height: 35vh;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 2s ease;
+    background-color: #EAB200;
+}
+
+/* PSEUDOCLASSE QUE FAZ O CARD VIRAR */
+.thecard:hover {
+    transform: rotateY(180deg);
+    background-color: #000D27;
+}
+
+/* PARTE DA FRENTE DO CARD */
+.thefront {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 80px 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #112E68;
+    color: #000;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* PARTE DE TRÁS DO CARD */
+.theback {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 80px 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #112E68;
+    color: #333;
+    transform: rotateY(180deg);
+    justify-content: center;
+    flex-direction: column;
+}
+
+/*TEXTO DA PARTE DE TRÁS*/
+.theback p {
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    margin-top: 1vh;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+.color {
+    background-color: #F4C11D
+}
+
+/*COR DO NOME */
+.color-nome {
+    color: #F4C11D;
+}
+
+/*COR DA BIBLIOGRAFIA */
+.color-h6 {
+    color: #ffffff;
+}
+
+/*BORDA DA IMAGEM */
+.border-image1 {
+    border: #F4C11D solid;
+}
+
+/*DEFINIÇÕES DA IMAGEM (POSIÇÃO E BOX FLEX)*/
+.imagem {
+    display: flex;
+    justify-content: center;
+}
+
+.color-padding img {
+    border-radius: 10.65vh;
+    width: 8vw;
+    height: 16vh;
+    margin-left: 6vh;
+    padding: 0.1vh;
+    background-color: #F4C11D;
+}
+
+/*BORDA DA IMAGEM/LARGURA E ALTURA*/
+.imagem img {
+    border-radius: 10.65vh;
+    padding: 0.1vh;
+    background-color: #F4C11D;
+}
+
+.nome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*MARGEM DO NOME*/
+.nome h1 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/*E-MAIL DE CADA INTEGRANTE*/
+.nome h5 {
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 2vh;
+}
+
+/*CONFIG DOS ICONES*/
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+/*COR DO TEXTO DA PARTE TRASEIRA DO CARD*/
+.cor-texto-card p {
+    color: #071633;
+}
