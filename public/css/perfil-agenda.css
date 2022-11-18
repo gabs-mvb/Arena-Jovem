@@ -1,0 +1,79 @@
+.modulo {
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background: #fff;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.container .feed {
+    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 20%;
+  width: 70%;
+  margin-top: 200px;
+  padding: 35px 0px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: #1b1b1b18 0px 1px 4px;
+  background-color: rebeccapur;
+}
+.container .post {
+  width: 85%;
+  padding: 50px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.16);
+}
+
+/* Post */
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-bottom: 3vh;
+  border-radius: 15px;
+  background-color: #1b1b1b;
+}
+
+.post h4 {
+  font-size: 40px;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #1b1b1b;
+}
+.post b {
+  padding-left: 25px;
+  font-size: 25px;
+}
+.post p {
+  padding: 5px;
+  font-size: 20px;
+}
+.post .curtidas {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 2.5vw;
+}
+.mensagem {
+  z-index: 9999;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  font-size: large;
+}
+
+.data-hora b {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 15.5px;
+  margin-right: 0.5vw;
+}
