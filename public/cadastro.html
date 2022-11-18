@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login</title>
     <link rel="stylesheet" href="css/sign.css" />
+    <link rel="icon" href="assets/logo.jpg" alt="" />
   </head>
   <body>
     <section>
       <div class="contentBox">
-        <div class="btnBack">
+        <div class="btnBack cadastro">
           <img src="assets/arrowBack.svg" alt="" onclick="voltarPagina()" />
         </div>
         <div id="formBox" class="formBox">
@@ -28,7 +29,6 @@
                 type="text"
                 name=""
                 placeholder="Usuário"
-                onblur="validarUsuario()"
                 required
               />
             </div>
@@ -40,13 +40,11 @@
                 name=""
                 id="inputSenha"
                 placeholder="Senha"
-                onblur="validarSenha()"
                 required
               />
               <img
                 id="btnVisibility"
                 class="visibility"
-                onclick="mostrarSenha()"
                 src="assets/login/visibility.svg"
                 alt=""
               />
@@ -62,20 +60,6 @@
                 name=""
                 placeholder="Nome Completo"
                 required
-                onblur="validarNome()"
-              />
-            </div>
-
-            <!-- <span>E-mail</span> -->
-            <div class="inputBox border">
-              <img src="assets/login/emailCadastro.svg" alt="" />
-              <input
-                id="inputEmail"
-                type="email"
-                name=""
-                placeholder="E-mail"
-                required
-                onblur="validarEmail()"
               />
             </div>
 
@@ -87,21 +71,38 @@
                 type="text"
                 name=""
                 placeholder="Contato (Opcional)"
-                onkeyup="validarContato()"
               />
             </div>
 
             <div class="inputBox border">
               <img src="assets/login/church-svgrepo-com.svg" alt="" />
+              <select id="comboIgreja" name="select">
+                <option value="1">IASD Vila Maria</option>
+                <option value="2">IASD Vila Medeiros</option>
+                <option value="3">IASD Vila Guilherme</option>
+                <option value="4">IASD Tucuruvi</option>
+                <option value="5">IASD Parque Novo Mundo</option>
+                <option value="6">IASD Jardim Andaraí</option>
+              </select>
+            </div>
+            <div class="inputBox border">
+              <label for="LiderJovemSim">Lider Jovem</label>
+              <img src="assets/login/lider.png" alt="" width="500px" />
+              <label for="liderJovemSim">Sim</label>
               <input
-                id="inputIgreja"
-                type="text"
-                name=""
-                placeholder="Igreja"
-                onkeyup="validarIgreja()"
+                type="radio"
+                id="liderJovemSim"
+                name="liderJovem"
+                value="Sim"
+              />
+              <label for="liderJovemNao">Não</label>
+              <input
+                type="radio"
+                id="liderJovemNao"
+                name="liderJovem"
+                value="Não"
               />
             </div>
-
             <div class="inputBox">
               <input onclick="cadastrar()" type="button" value="Cadastrar" />
             </div>
@@ -120,73 +121,4 @@
 </html>
 <script src="js/sign.js"></script>
 <script src="js/validacao.js"></script>
-
-<script>
-  function cadastrar() {
-    // aguardar();
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var userVar = inputUsuario.value;
-    var senhaVar = inputSenha.value;
-    var nomeVar = inputNome.value;
-    var emailVar = inputEmail.value;
-    var contatoVar = inputContato.value;
-
-    // if (userVar == "" || senhaVar == "" || nomeVar == "" || emailVar == "") {
-    //     cardErro.style.display = "block"
-    //     mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
-    //     finalizarAguardar();
-    //     return false;
-    // }
-    // else {
-    //     setInterval(sumirMensagem, 5000)
-    // }
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        userServer: userVar,
-        senhaServer: senhaVar,
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        contatoServer: contatoVar,
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          alert(
-            "login realizado com sucesso! Redirecionando para tela de Login..."
-          );
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          // finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o login!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
-      });
-
-    return false;
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
-</script>
+<script src="js/cadastrar.js"></script>
