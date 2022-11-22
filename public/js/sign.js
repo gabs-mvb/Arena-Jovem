@@ -7,14 +7,14 @@ function mostrarSenha() {
   }
 }
 var selecionado = 1;
-function lembrarSenha() {
+function curtir() {
   const check = document.getElementById("imgCheck");
   selecionado += 1;
   var cont = selecionado / 2;
   if (cont % 1 == 0) {
-    check.src = "assets/login/checked.png";
+    check.src = "assets/heartCheck.png";
   } else {
-    check.src = "assets/login/unchecked.png";
+    check.src = "assets/heart.png";
   }
   console.log(selecionado);
 }

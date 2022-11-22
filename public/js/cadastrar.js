@@ -1,9 +1,10 @@
 function cadastrar() {
-    var fkLiderJovemAtribuida = null;
-    if (liderJovemSim.value == 'Sim') {
-        fkLiderJovemAtribuida = comboIgreja.value;      
-    } else {
-        fkLiderJovemAtribuida = null;
+    valorFk = document.querySelector('input[name="liderJovem"]:checked').value;
+
+    if (valorFk == 'SIM') {
+        valorFk = 1;      
+    }else{
+        valorFk = null;
     }
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -12,7 +13,7 @@ function cadastrar() {
     var nomeVar = inputNome.value;
     var contatoVar = inputContato.value;
     var igrejaVar = comboIgreja.value;
-    var liderJovemVar = fkLiderJovemAtribuida;
+    var liderJovemVar = valorFk;
     
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -39,7 +40,7 @@ function cadastrar() {
     
             setTimeout(() => {
                 window.location = "login.html";
-            }, "2000")
+            }, "500")
             
         } else {
             alert ("Houve um erro ao tentar realizar o cadastro!");
