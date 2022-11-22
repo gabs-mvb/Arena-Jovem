@@ -1,41 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Arena Jovem | Página Inicial</title>
-
-    <script src="./js/funcoes.js"></script>
-
-    <link rel="icon" href="./assets/icon/favicon2.ico" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="icon" href="assets/logo.jpg" alt="" />
   </head>
 
   <body>
     <div class="header">
-      <div class="container"></div>
-    </div>
-
-    <div class="banner">
-      <div class="container"></div>
-    </div>
-
-    <div class="social">
       <div class="container">
-        <div class="boxes">
-          <div class="box"></div>
-
-          <div class="box"></div>
-
-          <div class="box"></div>
-        </div>
+        <h2><a href="#nos "> Quem Somos </a></h2>
+        <h2><a href="#convidados"> Convidados </a></h2>
+        <h2>|</h2>
+        <h1><a href="#"> Arena Jovem </a></h1>
+        <h2>|</h2>
+        <h2><a href="#podcast"> Podcast </a></h2>
+        <h2 id="login"><a href="login.html"> Participe </a></h2>
       </div>
     </div>
+    <main>
+      <section id="carrossel">
+          <div class="carousel">
+            <div data-js="carousel__item" class="carousel__item carousel__item--visible">
+              <img src="./assets/Carrosel/carrossel01.png" />
+            </div>
+        
+            <div data-js="carousel__item" class="carousel__item">
+              <img src="./assets/Carrosel/carrossel02.png" />
+            </div>
+        
+            <div class="carousel__actions">
+              <button data-js="carousel__button--prev" aria-label="Slide anterior">
+                <
+              </button>
+        
+              <button data-js="carousel__button--next" aria-label="Próximo slide">
+                >
+              </button>
+            </div>
+          </div>
+      </section>
+      <section id="nos">
+        <img src="assets/bg-Teste-05.jpg" alt="" />
+        <div class="content">
+          <img class="beginning" src="assets/the_beginning.png" alt="" />
+          <div class="titulo">
+            <h1>
+              O que é<br />
+              Area Jovem
+            </h1>
+            <h2>
+              A Arena jovem é um espaço criado para conectar todas as pessoas
+              que querem fazer parte do Reino de Deus. Onde todas as crenças são
+              respeitadas, e Cristo se torna o centro. Um lugar de paz e
+              segurança, dentre tantas dificuldades que nos rodeiam.
+            </h2>
+          </div>
+        </div>
+      </section>
+      <section id="convidados">
+        <h1 class="title TituloConvidados">Convidados</h1>
+        <div class="minimizador">
+          <div class="card convidados_1">
+            <div class="pelicula">
+              <p>
+                Grupo Musical <br />
+                Vocal Livre
+              </p>
+            </div>
+          </div>
+          <!--/card-->
 
+          <div class="card convidados_2">
+            <div class="pelicula">
+              <p>Pr. Odailson<br />Fonseca</p>
+            </div>
+          </div>
+          <!--/card-->
+
+          <div class="card convidados_3">
+            <div class="pelicula">
+              <p>Pr. Rodrigo <br />Silva</p>
+            </div>
+          </div>
+          <!--/card-->
+        </div>
+      </section>
+
+      <section id="podcast">
+        <div class="minimizador">
+          <h1 class="title TituloPodcast">Podcasts</h1>
+          <a
+            class="card podcast_1"
+            href="https://www.youtube.com/watch?v=UG7ENeeIivs&ab_channel=IASDVilaMaria"
+          >
+          </a>
+          <a
+            class="card podcast_2"
+            href="https://www.youtube.com/watch?v=vi9uVF9-rcE&ab_channel=IASDVilaMaria"
+          >
+          </a>
+          <a
+            class="card podcast_3"
+            href="https://www.youtube.com/watch?v=T6rpfD5AKAY&ab_channel=IASDVilaMaria"
+          >
+          </a>
+        </div>
+      </section>
+    </main>
     <!--footer inicio-->
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <div class="container">
+        <div class="textoFinal">
+          <h3>Nosso <b>espaço</b></h3>
+          <h3>Nosso <b>jeito</b></h3>
+          <h3>Nossa <b>turma</b></h3>
+        </div>
+        <a class="compartilhe" href="login.html">Participe e Compartilhe</a>
+      </div>
+    </footer>
     <!--footer fim-->
   </body>
 </html>
+<script src="./js/funcoes.js"></script>
+<script src="./js/carrossel.js"></script>
+<script src="./js/index.js"></script>
