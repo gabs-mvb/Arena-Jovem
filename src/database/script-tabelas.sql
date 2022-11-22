@@ -4,7 +4,7 @@ USE `arenaJovem` ;
 drop DATABASE arenaJovem;
 CREATE TABLE IF NOT EXISTS `Igreja` (
   `idIgreja` INT PRIMARY KEY AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
+  `nomeIgreja` VARCHAR(45) NOT NULL,
   `logradouro` VARCHAR(45) NOT NULL,
   `numero` INT NOT NULL,
   `CEP`char(9) NOT NULL,
@@ -23,11 +23,13 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
     FOREIGN KEY (`fkIgreja`) REFERENCES `Igreja` (`idIgreja`),
     FOREIGN KEY (`fkLiderJovem`) REFERENCES `Usuario` (`idUsuario`)
 );
+CREATE UNIQUE INDEX FkLiderJovem_Igreja 
+    ON usuario (fkIgreja, fkLiderJovem);
 
 CREATE TABLE IF NOT EXISTS `Posts` (
-  `idPosts` INT NOT NULL,
+  `idPosts` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(200) NOT NULL,
-  `data` DATE NOT NULL,
+  `dataAnuncio` DATETIME NOT NULL,
   `curtidas` VARCHAR(45) NULL,
   `fkUsuario` INT NOT NULL,
   PRIMARY KEY (`idPosts`, `fkUsuario`),
@@ -42,7 +44,3 @@ INSERT INTO igreja VALUES
   (null,'IASD Tucuruvi','RUA CRUZ DE MALTA', 1201 ,'02248-001','SÃO PAULO', 'Tucuruvi','Pr. William Pedro'),
   (null,'IASD Parque Novo Mundo','RUA SOLDADO SEBASTIÃO FELICIO',29,'02144-070','SÃO PAULO', 'Parque Novo Mundo','PR. ROGÉRIO ARAÚJO'),
   (null,'IASD Jardim Andaraí','RUA BENEDITA DORNELAS CLARO',328,'02168-020','SÃO PAULO', 'Parque Vila Maria','Pr. Claudenir Custódio de Assis');
-
-SELECT * FROM usuario;
-
-drop DATABASE arenaJovem
