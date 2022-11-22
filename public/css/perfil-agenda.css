@@ -1,3 +1,10 @@
+:root{
+  --dark-blue: #363f5f;
+  --green: #49AA26;
+  --light-green: #3dd705;
+  --income: #12a454;
+  --expanse: #e92929;
+}
 .modulo {
   position: fixed;
   height: 100vh;
@@ -10,7 +17,12 @@
   color: black;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.container .feed {
+.modulo span{
+  font-size: 20px;
+  padding-bottom: 50px;
+  font-weight: bolder;
+}
+.container #feed {
     position: relative;
   display: flex;
   flex-direction: column;
@@ -55,6 +67,10 @@
   padding: 5px;
   font-size: 20px;
 }
+.post .textoCurtido{
+  display: flex;
+  margin-left: 8%;
+}
 .post .curtidas {
   padding-top: 50px;
   display: flex;
@@ -76,4 +92,143 @@
   justify-content: flex-end;
   font-size: 15.5px;
   margin-right: 0.5vw;
+}
+
+/* Modal */
+
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.modal {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  padding: 2.4rem;
+  width: 90%;
+  max-width: 500px;
+  
+}
+.modal a{
+  text-decoration: none;
+}
+
+/* Formulário */
+
+#form {
+  max-width: 500px;
+  font-size: 20px;
+}
+
+#form h2 {
+  margin-top: 0;
+  color: #000;
+}
+
+#form input {
+  border: none;
+  border: .2rem;
+  padding: .8rem;
+  width: 100%;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  color: #000;
+}
+
+
+.input-group.actions button {
+  border: none;
+  border-radius: 0.25rem;
+  height: 50px;
+  color: #fff;
+  background-color: var(--green);
+  cursor: pointer;
+}
+
+.input-group.actions button:hover {
+  background-color: var(--light-green);
+}
+
+.button.cancel {
+  color: var(--expanse);
+  border: var(--expanse) solid 2px;
+  border-radius: 0.25rem;
+  height: 50px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.button.cancel:hover {
+  opacity: 1;
+}
+
+.button.new {
+  display: inline-block;
+  margin-bottom: .8rem;
+}
+.input-group {
+  margin-top: .8rem;
+}
+
+.input-group small {
+  opacity: 0.4;
+}
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.actions.button.cancel,
+.input-group.actions button {
+  width: 48%;
+}
+/* BTN LOGGOUT */
+
+.loggout{
+  position: absolute;
+  bottom: 2rem;
+  font-size: 20px;
+  background:#5495ba;
+  padding: 15px 50px;
+  border-radius: 25px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+  transition: .5s;
+}
+.loggout:hover{
+  background-color: red;
+}
+.openClose{
+  position: fixed;
+  right: 5rem;
+  bottom: 5rem;
+  width: 100px;
+  cursor: pointer;
+  transition: .5s;
+}
+.openClose:hover{
+  transform: rotate(45deg);
 }
