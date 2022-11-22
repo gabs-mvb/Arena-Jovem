@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/logo.jpg" alt="" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/perfil-agenda.css" />
+    <title>Agenda</title>
+  </head>
+  <body onload="atualizarFeed()">
+    <div class="header">
+      <div class="container">
+        <h2><a href="index.html#nos "> Quem Somos </a></h2>
+        <h2><a href="index.html#convidados"> Convidados </a></h2>
+        <h2>|</h2>
+        <h1><a href="index.html"> Arena Jovem </a></h1>
+        <h2>|</h2>
+        <h2><a href="index.html#podcast"> Podcast </a></h2>
+        <h2><a href="login.html"> Agenda </a></h2>
+      </div>
+    </div>
+
+    <main>
+      <section id="agenda">
+        <div class="modulo">
+          <h1>Nome:</h1>
+          <span id="nomeUser"></span>
+          <h1>Igreja:</h1>
+          <span id="nomeIgreja"></span>
+          <button class="loggout" onclick="loggout()">SAIR</button>
+        </div>
+        <div class="container">
+          <div id="feed"></div>
+        </div>
+      </section>
+      <div class="modal-overlay">
+        <div class="modal">
+          <div id="form">
+            <h2>Novo Evento</h2>
+            <form action="">
+              <div class="input-group">
+                <label for="description" class="sr-only">Descrição</label>
+                <input
+                  type="text"
+                  placeholder="Insira a descrição"
+                  id="description"
+                  name="description"
+                />
+              </div>
+              <div class="input-grou">
+                <label for="date" class="sr-only">Data</label>
+                <input type="datetime-local" id="date" name="date" />
+              </div>
+              <div class="input-group actions">
+                <a href="#" onclick="Modal.openClose()" class="button cancel"
+                  >Cancelar</a
+                >
+                <button>Enviar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="modalOverlay">
+        <img
+          class="openClose"
+          src="assets/addEvent.svg"
+          alt=""
+          onclick="Modal.openClose()"
+        />
+      </div>
+    </main>
+  </body>
+</html>
+<script src="js/sign.js"></script>
+<script src="js/agenda.js"></script>
+<script>
+  if (sessionStorage.LIDER_JOVEM != 1) {
+    modalOverlay.innerHTML = "";
+  }
+  nomeUser.innerHTML = sessionStorage.NOME_USUARIO;
+  nomeIgreja.innerHTML = sessionStorage.NOME_IGREJA;
+  const Modal = {
+    openClose() {
+      //abrir modal e fechar modal
+      document.querySelector(".modal-overlay").classList.toggle("active");
+    },
+  };
+</script>
