@@ -23,17 +23,27 @@ function atualizarFeed() {
             var divPublicacao = document.createElement("div");
             feed.appendChild(divPublicacao);
 
-            function dataFormatada(){
+            function dataFormatada() {
               var data = new Date(publicacao.dataAnuncio),
-                  dia  = data.getDate().toString(),
-                  diaFormatado = (dia.length == 1) ? '0'+dia : dia,
-                  mes  = (data.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
-                  mesFormatado = (mes.length == 1) ? '0'+mes : mes,
-                  anoFormatado = data.getFullYear();
-                  horaFormatada = data.getHours();
-                  minutosFormatados = data.getMinutes();
-              return diaFormatado+"/"+mesFormatado+"/"+anoFormatado+" "+horaFormatada+":"+minutosFormatados;
-          }
+                dia = data.getDate().toString(),
+                diaFormatado = dia.length == 1 ? "0" + dia : dia,
+                mes = (data.getMonth() + 1).toString(), //+1 pois no getMonth Janeiro começa com zero.
+                mesFormatado = mes.length == 1 ? "0" + mes : mes,
+                anoFormatado = data.getFullYear();
+              horaFormatada = data.getHours();
+              minutosFormatados = data.getMinutes();
+              return (
+                diaFormatado +
+                "/" +
+                mesFormatado +
+                "/" +
+                anoFormatado +
+                " " +
+                horaFormatada +
+                ":" +
+                minutosFormatados
+              );
+            }
             divPublicacao.innerHTML += `
                         
             
@@ -42,8 +52,12 @@ function atualizarFeed() {
                     <p>${publicacao.nomeIgreja}</p>
                 <p><b>Descrição:</b></p>
                     <p>${publicacao.descricao}</p>
-                <p><b>Endereço:</b></p> <p>${publicacao.logradouro}, ${publicacao.numero}, ${publicacao.cep}, ${publicacao.cidade}, ${publicacao.bairro}</p>
-                <p class="curtidas"><img id="imgCheck" src="assets/heart.png" width="50px" alt="" onclick="curtir()"><p class='textoCurtido'>${publicacao.curtidas}</p></p>
+                <p><b>Endereço:</b></p> <p>${publicacao.logradouro}, ${
+              publicacao.numero
+            }, ${publicacao.cep}, ${publicacao.cidade}, ${publicacao.bairro}</p>
+                <p class="curtidas"><img id="imgCheck" src="assets/heart.png" width="50px" alt="" onclick="curtir()"><p class='textoCurtido'>${
+                  publicacao.curtidas
+                }</p></p>
                 <p class="data-hora"><b>${dataFormatada()}</b></p>
           
                         `;
@@ -58,17 +72,52 @@ function atualizarFeed() {
       console.log(resposta);
     });
 }
+function cadastrarEvento() {
+  var descricaoVar = inputDescription.value;
+  var dataVar = inputDate.value;
 
-function loggout(){
-        sessionStorage.clear();
-        link_index();
+  fetch(`/avisos/cadastrarEvento`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      UsuarioServer: sessionStorage.ID_USUARIO,
+      descricaoServer: descricaoVar,
+      dataServer: dataVar,
+    }),
+  })
+    .then(function (resposta) {
+      console.log("resposta: " + resposta);
+
+      if (resposta.ok) {
+        console.log("Evento Registrado!");
+
+        setTimeout(() => {
+          // window.location.reload();
+        }, "500");
+      } else {
+        alert("Houve um erro ao tentar registrar o evento!");
+        console.log("respostaaaa: " + resposta);
       }
-      //link para página do login, quando fazer o logout
-    
-      function link_login() {
-        window.location.href = "login.html";
-      }
-    
-      function link_index() {
-        window.location.href = "index.html";
-      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+  return false;
+}
+
+function loggout() {
+  sessionStorage.clear();
+  link_index();
+}
+//link para página do login, quando fazer o logout
+
+function link_login() {
+  window.location.href = "login.html";
+}
+
+function link_index() {
+  window.location.href = "index.html";
+}
