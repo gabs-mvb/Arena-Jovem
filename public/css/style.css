@@ -92,18 +92,3 @@ section {
   align-items: center;
   padding: 5%;
 }
-
-/* Responsividade do sistema em mobile*/
-
-@media (min-width:800px) {
-  html {
-      font-size: 87.5%;
-      /* */
-  }
-
-  #balance {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem;
-  }
-}

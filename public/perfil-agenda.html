@@ -45,19 +45,19 @@
                 <input
                   type="text"
                   placeholder="Insira a descrição"
-                  id="description"
+                  id="inputDescription"
                   name="description"
                 />
               </div>
-              <div class="input-grou">
+              <div class="input-group">
                 <label for="date" class="sr-only">Data</label>
-                <input type="datetime-local" id="date" name="date" />
+                <input type="datetime-local" id="inputDate" name="date" />
               </div>
               <div class="input-group actions">
-                <a href="#" onclick="Modal.openClose()" class="button cancel"
-                  >Cancelar</a
-                >
-                <button>Enviar</button>
+                <a href="#" onclick="Modal.openClose()" class="button cancel">
+                  Cancelar
+                  </a>
+                <button onclick="cadastrarEvento()">Enviar</button>
               </div>
             </form>
           </div>
