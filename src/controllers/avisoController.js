@@ -19,29 +19,40 @@ function listar(req, res) {
     });
 }
 
-function listarPorUsuario(req, res) {
-    var idUsuario = req.params.idUsuario;
+function cadastrarEvento(req, res) {
 
-    avisoModel.listarPorUsuario(idUsuario)
-        .then(
-            function (resultado) {
-                if (resultado.length > 0) {
-                    res.status(200).json(resultado);
-                } else {
-                    res.status(204).send("Nenhum resultado encontrado!");
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+   var descricao = req.body.descricaoServer;
+   var data = req.body.dataServer;
+   var fkUsuario = req.body.UsuarioServer;
+
+    // Faça as validações dos valores
+    if (descricao == undefined) {
+        res.status(400).send("O nome da empresa está undefined!");
+    } else if (data == undefined) {
+        res.status(400).send("O CNPJ está undefined!");
+    } else if (fkUsuario == undefined) {
+        res.status(400).send("O logradouro está undefined!");
+    }
+    else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo empresaModel.js
+        avisoModel.cadastrarEvento(descricao,data,fkUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
                 }
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log(
-                    "Houve um erro ao buscar os avisos: ",
-                    erro.sqlMessage
-                );
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
 }
 
 function pesquisarDescricao(req, res) {
@@ -132,11 +143,6 @@ function deletar(req, res) {
 }
 
 module.exports = {
-    testar,
     listar,
-    listarPorUsuario,
-    pesquisarDescricao,
-    publicar,
-    editar,
-    deletar
+    cadastrarEvento,
 }

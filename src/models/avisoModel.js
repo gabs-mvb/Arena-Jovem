@@ -13,6 +13,15 @@ function listar() {
     return database.executar(instrucao);
 }
 
+function cadastrarEvento(descricao, data, fkUsuario) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ",descricao, data, fkUsuario );
+    var instrucao = `
+        INSERT INTO posts (descricao, dataAnuncio,fkUsuario) VALUES ('${descricao}', '${data}', ${fkUsuario});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function pesquisarDescricao(texto) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function pesquisarDescricao()");
     var instrucao = `
@@ -86,7 +95,7 @@ module.exports = {
     listar,
     listarPorUsuario,
     pesquisarDescricao,
-    publicar,
+    cadastrarEvento,
     editar,
     deletar
 }

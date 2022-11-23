@@ -146,11 +146,34 @@
   padding: .8rem;
   width: 100%;
   box-shadow: 0 0 0 0;
-  border: 0 none;
+  border: 1px solid #1b1b1b;
   outline: 0;
   color: #000;
 }
-
+#form input {
+  background: #fff;
+  color: #525865;
+  border-radius: 4px;
+  border: 1px solid #d1d1d1;
+  box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.07);
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1.45;
+  outline: none;
+  padding: 0.6em 1.45em 0.7em;
+  -webkit-transition: .18s ease-out;
+  -moz-transition: .18s ease-out;
+  -o-transition: .18s ease-out;
+  transition: .18s ease-out;
+}
+#form input:hover {
+  box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.02);
+}
+#form input:focus {
+  color: #4b515d;
+  border: 1px solid #B8B6B6;
+  box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
 
 .input-group.actions button {
   border: none;
@@ -175,10 +198,13 @@
   align-items: center;
   justify-content: center;
   opacity: 0.7;
+  transition: .2s linear;
 }
 
 .button.cancel:hover {
   opacity: 1;
+  background-color: var(--expanse);
+  color: #fff;
 }
 
 .button.new {
