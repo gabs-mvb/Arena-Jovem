@@ -30,12 +30,19 @@ CREATE TABLE IF NOT EXISTS `Posts` (
   `idPosts` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(200) NOT NULL,
   `dataAnuncio` DATETIME NOT NULL,
-  `curtidas` VARCHAR(45) NULL,
+  `curtidas` VARCHAR(45) DEFAULT 0 ,
   `fkUsuario` INT NOT NULL,
   PRIMARY KEY (`idPosts`, `fkUsuario`),
     FOREIGN KEY (`fkUsuario`) REFERENCES `Usuario` (`idUsuario`)
 );
 
+CREATE TABLE `interacao` (
+  fkUsuario int,
+  fkPosts int,
+  Foreign Key (fkUsuario) REFERENCES Usuario(idUsuario),
+  Foreign Key (fkPosts) REFERENCES Posts(idPosts),
+  PRIMARY key (fkUsuario, fkPosts)
+);
 -- INSERTS 
 INSERT INTO igreja VALUES
   (null,'IASD Vila Maria','RUA AMAMBAI',250,'02115-000','SÃO PAULO', 'Vila  Maria','Pr. Claudenir Custódio de Assis'),

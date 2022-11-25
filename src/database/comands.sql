@@ -18,7 +18,7 @@ select * from usuario;
 insert into posts VALUES
   (null, 'Hj é Só estudar em casa mesmo', now(), 0, 1);
 
-  ALTER TABLE igreja CHANGE nome nomeIgreja varchar(45);
+  ALTER TABLE posts CHANGE curtidas curtidas int DEFAULT 0;
   select * from usuario;
 
   select * from posts;
@@ -26,3 +26,4 @@ insert into posts VALUES
   select * from igreja i 
 		join usuario u on i.idIgreja = u.fkIgreja
       join posts p on u.idUsuario = p.fkUsuario order by dataAnuncio desc; 
+      truncate table posts;
