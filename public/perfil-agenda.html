@@ -74,9 +74,11 @@
     </main>
   </body>
 </html>
-<script src="js/sign.js"></script>
 <script src="js/agenda.js"></script>
 <script>
+  function voltarPagina() {
+  window.history.back();
+}
   if (sessionStorage.LIDER_JOVEM != 1) {
     modalOverlay.innerHTML = "";
   }
