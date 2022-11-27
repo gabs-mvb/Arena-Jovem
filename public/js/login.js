@@ -1,3 +1,56 @@
+/* Validando os campos do cadastro do Usuario */
+//Validando Nome de usuario
+var validar_usuario = false;
+function validarUsuario() {
+  var usuario = inputUsuario.value;
+  /* Verifica se o usuario tem mais de 6 caractéres */
+  if (usuario.length < 6) {
+    inputUsuario.classList.add("red");
+    inputUsuario.classList.remove("green");
+  } else {
+    inputUsuario.classList.remove("red");
+    inputUsuario.classList.add("green");
+    validar_usuario = true;
+  }
+}
+//Validando Senha do Usuario
+var validar_senha = false;
+function validarSenha() {
+  var senha = inputSenha.value;
+  var fortificador =
+    /^(?=.*\d)(?=.*[a-z])([0-9a-zA-Z]){6,}$/;
+  /*
+  
+  (?=.*\d)         // deve conter ao menos um dígito
+  (?=.*[a-z])      // deve conter ao menos uma letra minúscula
+
+  ([0-9a-z): é uma classe de caracteres contendo números, 
+    letras e os caracteres especiais que você está considerando. 
+  Eles estão dentro de parênteses para formar um grupo de captura
+  
+  */
+ /* Verifica se a senha está com as requisições acima */
+ if (fortificador.test(senha)) {
+    inputSenha.classList.remove("red");
+    inputSenha.classList.add("green");
+    validar_senha = true;
+} else {
+    inputSenha.classList.add("red");
+    inputSenha.classList.remove("green");
+  }
+}
+
+function validarBTNLogin() {
+  if (
+      validar_usuario &&
+      validar_senha
+  ) {      
+    entrar()
+  }else {
+      alert ('Houve um erro ao realizar login');
+  }
+}
+
 function entrar() {
   var userVar = inputUsuario.value;
   var senhaVar = inputSenha.value;

@@ -29,6 +29,7 @@
                 type="text"
                 name=""
                 placeholder="Usuário"
+                onkeyup="validarUsuario()"
                 required
               />
             </div>
@@ -40,6 +41,7 @@
                 name=""
                 id="inputSenha"
                 placeholder="Senha"
+                onkeyup="validarSenha()"
                 required
               />
               <img
@@ -47,6 +49,7 @@
                 class="visibility"
                 src="assets/login/visibility.svg"
                 alt=""
+                onclick="mostrarSenha()"
               />
 
               <!-- <input type="checkbox" name="" id="inputSenha"> -->
@@ -59,6 +62,7 @@
                 type="text"
                 name=""
                 placeholder="Nome Completo"
+                onkeyup="validarNome()"
                 required
               />
             </div>
@@ -71,12 +75,13 @@
                 type="text"
                 name=""
                 placeholder="Contato (Opcional)"
+                onkeyup="validarContato()"
               />
             </div>
 
             <div class="inputBox border">
               <img src="assets/login/church-svgrepo-com.svg" alt="" />
-              <select id="comboIgreja" name="select">
+              <select onclick="validarIgreja()" id="comboIgreja" name="select">
                 <option value="1">IASD Vila Maria</option>
                 <option value="2">IASD Vila Medeiros</option>
                 <option value="3">IASD Vila Guilherme</option>
@@ -104,7 +109,7 @@
               />
             </div>
             <div class="inputBox">
-              <input onclick="cadastrar()" type="button" value="Cadastrar" />
+              <input id="inputValidacaoBTN" onclick="validarBTNCadastro()" type="button" value="Cadastrar" />
             </div>
             <div class="inputBox">
               <span class="cadastrado"
@@ -120,5 +125,4 @@
   </body>
 </html>
 <script src="js/sign.js"></script>
-<script src="js/validacao.js"></script>
 <script src="js/cadastrar.js"></script>

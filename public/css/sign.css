@@ -190,12 +190,12 @@ section .contentBox .formBox span a {
 }
 /* Estilização do Span de error chamado no JavaScript */
 .green {
-  width: 100%;
-  border-bottom: 2px solid green;
+  margin-bottom: -7px;
+  border-bottom: 3.5px solid green !important;
 }
 .red {
-  width: 100%;
-  border-bottom: 2px solid green;
+  margin-bottom: -7px;
+  border-bottom: 3.5px solid red !important;
 }
 section .contentBox .formBox .inputBox .active {
   /* display: block; */
