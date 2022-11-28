@@ -22,11 +22,11 @@ router.get("/pesquisar/:descricao", function (req, res) {
     avisoController.pesquisarDescricao(req, res);
 });
 
-router.post("/incrementarCurtida/:idPosts", function (req, res) {
+router.post("/IncrementarCurtida/:idPosts", function (req, res) {
     avisoController.IncrementarCurtida(req, res);
 });
 
-router.delete("/decrementarCurtida/:idPosts", function (req, res) {
+router.delete("/DecrementarCurtida/:idPosts", function (req, res) {
     avisoController.DecrementarCurtida(req, res);
 });
 

@@ -18,6 +18,7 @@ function atualizarFeed() {
           notificacoes.innerHTML = "";
           for (let i = 0; i < resposta.length; i++) {
             var publicacao = resposta[i];
+
             // criando e manipulando elementos do HTML via JavaScript
             var divPublicacao = document.createElement("div");
             feed.appendChild(divPublicacao);
@@ -43,7 +44,7 @@ function atualizarFeed() {
                 minutosFormatados
               );
             }
-            divPublicacao.innerHTML = `
+            divPublicacao.innerHTML += `
                         
             
               <h4>Informações do Evento</h4>
@@ -55,19 +56,19 @@ function atualizarFeed() {
               publicacao.numero
             }, ${publicacao.cep}, ${publicacao.cidade}, ${publicacao.bairro}</p>
 
-                <p id='like${i}' class="curtidas">
-                  <img id="imgCheck" onclick="IncrementarCurtida(${publicacao.idPosts})" 
+                <p class="curtidas">
+                  <img id="imgCheck" 
                   src="assets/heart.png" 
                   width="50px" 
-                  alt="">          
-            </p>
+                  alt="" 
+                  onclick="IncrementarCurtida(${publicacao.idPosts})">
+                <p class='textoCurtido'>${publicacao.curtidas}</p>
+                </p>
 
                 <p class="data-hora"><b>${dataFormatada()}</b></p>
           
                         `;
             divPublicacao.className = "post";
-            atualizarCurtida(resposta[i].idPosts);
-            
           }
         });
       } else {
@@ -78,7 +79,6 @@ function atualizarFeed() {
       console.log(resposta);
     });
 }
-
 function cadastrarEvento() {
   var descricaoVar = inputDescription.value;
   var dataVar = inputDate.value;
@@ -121,6 +121,7 @@ function loggout() {
 }
 //link para página do login, quando fazer o logout
 
+
 function IncrementarCurtida(idPosts) {
   fetch(`/avisos/IncrementarCurtida/${idPosts}`, {
     method: "POST",
@@ -133,12 +134,13 @@ function IncrementarCurtida(idPosts) {
   })
     .then(function (resposta) {
       console.log("resposta: " + resposta);
+      window.location.reload();
 
       if (resposta.ok) {
         console.log("Post: " + idPosts + " CURTIDO");
       } else {
-        alert("Não foi possível curtir esse post");
-        console.log("respostaaaa: " + resposta);
+        DecrementarCurtida(idPosts);
+        window.location.reload();
       }
     })
     .catch(function (resposta) {
@@ -149,12 +151,15 @@ function IncrementarCurtida(idPosts) {
 }
 
 function DecrementarCurtida(idPosts) {
-  console.log("Criar função de apagar post escolhido - ID" + idPosts);
+  console.log("Criar função de apagar post escolhido - ID: " + idPosts);
   fetch(`/avisos/DecrementarCurtida/${idPosts}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      UsuarioServer: sessionStorage.ID_USUARIO,
+    }),
   })
     .then(function (resposta) {
       if (resposta.ok) {
@@ -163,7 +168,7 @@ function DecrementarCurtida(idPosts) {
         window.alert("Não foi possível excluir");
       } else {
         throw (
-          "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
+          "Houve um erro ao tentar deletar: " +
           resposta.status
         );
       }
@@ -172,7 +177,6 @@ function DecrementarCurtida(idPosts) {
       console.log(`#ERRO: ${resposta}`);
     });
 }
-
 function link_login() {
   window.location.href = "login.html";
 }

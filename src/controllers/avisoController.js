@@ -73,8 +73,8 @@ function IncrementarCurtida(req, res) {
 
 function DecrementarCurtida(req, res) {
     var idPosts = req.params.idPosts;
-
-    avisoModel.DecrementarCurtida(idPosts)
+    var fkUsuario = req.body.UsuarioServer;
+    avisoModel.DecrementarCurtida(fkUsuario,idPosts)
         .then(
             function (resultado) {
                 res.json(resultado);

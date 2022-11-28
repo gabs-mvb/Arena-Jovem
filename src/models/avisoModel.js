@@ -32,7 +32,7 @@ async function cadastrarEvento(descricao, data, fkUsuario) {
 }
 
 function IncrementarCurtida(fkUsuario, idPosts) {
-    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar(): ", fkUsuario, idPosts);
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function IncrementarCurtida(): ", fkUsuario, idPosts);
     var instrucao = `
         INSERT INTO interacao (fkUsuario,fkPosts) VALUES (${fkUsuario},${idPosts});
     `;
@@ -40,9 +40,9 @@ function IncrementarCurtida(fkUsuario, idPosts) {
     return database.executar(instrucao);
 }
 function DecrementarCurtida(fkUsuario ,idPosts) {
-    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar(): ",fkUsuario ,idPosts);
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function DecrementarCurtida(): ",fkUsuario ,idPosts);
     var instrucao = `
-        DELETE FROM interecao WHERE fkUsuario = ${fkUsuario} and fkPosts = ${idPosts};
+        DELETE FROM interacao WHERE fkUsuario = ${fkUsuario} and fkPosts = ${idPosts};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
