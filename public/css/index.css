@@ -5,7 +5,7 @@
   justify-content: center;
   background-color: #fff;
     margin-top: 90px;
-    height: 91vh;
+    height: 100vh;
 }
 #convidados,
 #podcast {
@@ -83,48 +83,97 @@ body {
 }
 
 /* CARROSSEL */
-.carousel {
-  overflow: hidden;
-  position: relative;
-  width: 80%;
-  margin-top: 10%;
+ ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.carousel .carousel__item,
-.carousel .carousel__item--hidden {
-  display: none;
-}
-
-.carousel .carousel__item img {
-  width: 100%;
-  height: auto;
-}
-
-.carousel .carousel__item--visible {
-  display: block;
-  animation: fadeVisibility 0.5s;
-}
-
-.carousel .carousel__actions {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
+.carousel__viewport{
   position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+
+}
+.carousel__viewport a{
+  position: absolute;
+  top: -50px;
+
+}
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  background-image: url("../assets/Carrosel/carrossel01.png");
+  background-repeat:no-repeat;
+  background-size: contain;
+  background-position:top ;
 }
 
-.carousel .carousel__actions button {
-  border-radius: 50px;
-  border: 0;
-  font-weight: bold;
-  cursor: pointer;
-  width: 70px;
-  height:70px;
-  font-size: 40px;
-  color: #242424;
-  background-color: #fff; 
-  border: 5px solid #242424;
+.carousel__slide:nth-child(even) {
+  background-image: url("../assets/Carrosel/carrossel02.png");
+  background-repeat:no-repeat;
+  background-size: contain;
+  background-position:bottom ;
+}
+
+.carousel::before,
+.carousel::after,
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  top: 50px;
+  margin-top: 20.5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
+}
+
+.carousel::before,
+.carousel__prev {
+  left: -1rem;  
+  position: absolute;
+  margin-bottom: 50px;
+}
+
+.carousel::after,
+.carousel__next {
+  right: -1rem;  
+  position: absolute;
+  margin-bottom: 50px;
+}
+
+.carousel::before,
+.carousel::after {
+  content: '';
+  z-index: 1;
+  background-color: #333;
+  background-size: 1.5rem 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+  font-size: 2.5rem;
+  text-align: center;
+  pointer-events: none;
+
+}
+
+.carousel::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+.carousel::after {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
 }
 
   /* Sobre nós */

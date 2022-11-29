@@ -10,6 +10,9 @@ router.get("/", function (req, res) {
 router.post("/listar", function (req, res) {
     avisoController.listar(req, res);
 });
+router.post("/listarMaisCurtidas", function (req, res) {
+    avisoController.listarMaisCurtidas(req, res);
+});
 // router.get("/listarCurtida/:idPosts", function (req, res) {
 //     avisoController.listarCurtida(req, res);
 // });

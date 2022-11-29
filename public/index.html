@@ -23,26 +23,27 @@
       </div>
     </div>
     <main>
-      <section id="carrossel">
-          <div class="carousel">
-            <div data-js="carousel__item" class="carousel__item carousel__item--visible">
-              <img src="./assets/Carrosel/carrossel01.png" />
+      <section id="carrossel" class="carousel" aria-label="Gallery">
+        <ol class="carousel__viewport">
+          <li id="carousel__slide1"
+  
+              class="carousel__slide">
+            <div class="carousel__snapper">
+              <a href="#carousel__slide4"
+                 class="carousel__prev">Go to last slide</a>
+              <a href="#carousel__slide2"
+                 class="carousel__next">Go to next slide</a>
             </div>
-        
-            <div data-js="carousel__item" class="carousel__item">
-              <img src="./assets/Carrosel/carrossel02.png" />
-            </div>
-        
-            <div class="carousel__actions">
-              <button data-js="carousel__button--prev" aria-label="Slide anterior">
-                <
-              </button>
-        
-              <button data-js="carousel__button--next" aria-label="Próximo slide">
-                >
-              </button>
-            </div>
-          </div>
+          </li>
+          <li id="carousel__slide2"
+              
+              class="carousel__slide">
+            <div class="carousel__snapper"></div>
+            <a href="#carousel__slide1"
+               class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide3"
+               class="carousel__next">Go to next slide</a>
+          </li>
       </section>
       <section id="nos">
         <img src="assets/bg-Teste-05.jpg" alt="" />
