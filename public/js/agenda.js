@@ -1,5 +1,14 @@
+var validacaoHeart = false;
 function atualizarFeed() {
-  fetch(`/avisos/listar/`)
+  fetch(`/avisos/listar`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      UsuarioServer: sessionStorage.ID_USUARIO,
+    }),
+  })
     .then(function (resposta) {
       if (resposta.ok) {
         if (resposta.status == 204) {
@@ -18,7 +27,6 @@ function atualizarFeed() {
           notificacoes.innerHTML = "";
           for (let i = 0; i < resposta.length; i++) {
             var publicacao = resposta[i];
-
             // criando e manipulando elementos do HTML via JavaScript
             var divPublicacao = document.createElement("div");
             feed.appendChild(divPublicacao);
@@ -43,7 +51,7 @@ function atualizarFeed() {
                 ":" +
                 minutosFormatados
               );
-            }
+            }           
             divPublicacao.innerHTML += `
                         
             
@@ -56,9 +64,9 @@ function atualizarFeed() {
               publicacao.numero
             }, ${publicacao.cep}, ${publicacao.cidade}, ${publicacao.bairro}</p>
 
-                <p class="curtidas">
-                  <img id="imgCheck" 
-                  src="assets/heart.png" 
+                <p id="like${i}" class="curtidas">
+                  <img id="imgCheck${i}" 
+                  src='${publicacao.curtiu ? 'assets/heartCheck.png' : 'assets/heart.png'}'
                   width="50px" 
                   alt="" 
                   onclick="IncrementarCurtida(${publicacao.idPosts})">
@@ -66,9 +74,10 @@ function atualizarFeed() {
                 </p>
 
                 <p class="data-hora"><b>${dataFormatada()}</b></p>
-          
-                        `;
+            `;
+            
             divPublicacao.className = "post";
+            
           }
         });
       } else {
@@ -114,13 +123,11 @@ function cadastrarEvento() {
 
   return false;
 }
-
 function loggout() {
   sessionStorage.clear();
   link_index();
 }
 //link para página do login, quando fazer o logout
-
 
 function IncrementarCurtida(idPosts) {
   fetch(`/avisos/IncrementarCurtida/${idPosts}`, {
@@ -140,7 +147,6 @@ function IncrementarCurtida(idPosts) {
         console.log("Post: " + idPosts + " CURTIDO");
       } else {
         DecrementarCurtida(idPosts);
-        window.location.reload();
       }
     })
     .catch(function (resposta) {
@@ -162,9 +168,9 @@ function DecrementarCurtida(idPosts) {
     }),
   })
     .then(function (resposta) {
-      if (resposta.ok) {
-        window.location.reload();
-      } else if (resposta.status == 404) {
+        validacaoHeart = false;
+        
+       if (resposta.status == 404) {
         window.alert("Não foi possível excluir");
       } else {
         throw (

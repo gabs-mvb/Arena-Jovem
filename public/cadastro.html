@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/sign.css" />
     <link rel="icon" href="assets/logo.jpg" alt="" />
   </head>
-  <body>
+  <body onload="validarContato()">
     <section>
       <div class="contentBox">
         <div class="btnBack cadastro">
@@ -81,7 +81,7 @@
 
             <div class="inputBox border">
               <img src="assets/login/church-svgrepo-com.svg" alt="" />
-              <select onclick="validarIgreja()" id="comboIgreja" name="select">
+              <select id="comboIgreja" name="select">
                 <option value="1">IASD Vila Maria</option>
                 <option value="2">IASD Vila Medeiros</option>
                 <option value="3">IASD Vila Guilherme</option>

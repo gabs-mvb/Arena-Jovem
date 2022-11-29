@@ -67,33 +67,17 @@ var validar_contato = false;
 function validarContato() {
     var contato = inputContato.value;
     if (contato.length == 0){
-        validar_contato = true;
-    }else if(contato.length != 11){
-        // Valida números telefones celulares para contato
-        inputContato.classList.remove("green");
-        inputContato.classList.add("red");
-        validar_contato = false;
-    } else {
-        
-        inputContato.classList.remove("red");
-        inputContato.classList.add("green");
-        validar_contato = true;
+      validar_contato = true;
+      console.log(validar_contato);  
+    }else if(contato.length == 11){
+      inputContato.classList.remove("red");
+      inputContato.classList.add("green");
+      validar_contato = true;
+    } else {    
+      inputContato.classList.remove("green");
+      inputContato.classList.add("red");
+      validar_contato = false;
     }
-}
-
-//Validando igreja do Usuario para
-var validar_igreja = false;
-function validarIgreja() {
-  var igreja = comboIgreja.value;
-  /* Verifica se o usuario tem mais de 6 caractéres */
-  if (igreja == '') {
-    comboIgreja.classList.add("red");
-    comboIgreja.classList.remove("green");
-  } else {
-    comboIgreja.classList.remove("red");
-    comboIgreja.classList.add("green");
-    validar_igreja = true;
-  }
 }
 
 function mostrarSenha() {
@@ -110,8 +94,7 @@ function validarBTNCadastro() {
         validar_usuario &&
     validar_senha &&
     validar_nome &&
-    validar_contato &&
-    validar_igreja 
+    validar_contato
     ) {      
         cadastrar()
     }else {

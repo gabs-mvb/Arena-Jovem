@@ -1,3 +1,4 @@
+-- Active: 1663943194633@@127.0.0.1@3306@arenajovem
 
 SELECT * FROM usuario;
 desc posts;
@@ -27,3 +28,37 @@ insert into posts VALUES
 		join usuario u on i.idIgreja = u.fkIgreja
       join posts p on u.idUsuario = p.fkUsuario order by dataAnuncio desc; 
       truncate table posts;
+
+      select * from interacao;
+
+      drop table posts;
+      truncate table posts;
+      select * from posts;
+      SELECT * 
+        from igreja i 
+            join usuario u on i.idIgreja = u.fkIgreja
+                join posts p on u.idUsuario = p.fkUsuario
+                  left join interacao it on p.idPosts = it.fkPosts;
+
+                   SELECT * from igreja;
+
+  SELECT *, COUNT(fkPosts) as curtidas
+    from igreja i 
+        join usuario u on i.idIgreja = u.fkIgreja
+            join posts p on u.idUsuario = p.fkUsuario
+              left join interacao it on p.idPosts = it.fkPosts
+                GROUP BY fkPosts
+                    order by p.dataAnuncio desc;
+
+
+                    select * from posts;
+
+          SELECT *, COUNT(fkPosts) as curtidas
+            from igreja i 
+                join usuario u on i.idIgreja = u.fkIgreja
+                    join posts p on u.idUsuario = p.fkUsuario
+                    left join interacao it on p.idPosts = it.fkPosts
+                        GROUP BY fkPosts
+                            order by p.dataAnuncio desc;
+
+                            select * from interacao;

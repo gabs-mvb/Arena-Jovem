@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `Igreja` (
   `nomeIgreja` VARCHAR(45) NOT NULL,
   `logradouro` VARCHAR(45) NOT NULL,
   `numero` INT NOT NULL,
-  `CEP`char(9) NOT NULL,
+  `cep`char(9) NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
   `bairro` VARCHAR(45) NOT NULL,
   `pastor` VARCHAR(45) NULL
@@ -30,7 +30,6 @@ CREATE TABLE IF NOT EXISTS `Posts` (
   `idPosts` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(200) NOT NULL,
   `dataAnuncio` DATETIME NOT NULL,
-  `curtidas` VARCHAR(45) DEFAULT 0 ,
   `fkUsuario` INT NOT NULL,
   PRIMARY KEY (`idPosts`, `fkUsuario`),
     FOREIGN KEY (`fkUsuario`) REFERENCES `Usuario` (`idUsuario`)

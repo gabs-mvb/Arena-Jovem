@@ -1,15 +1,19 @@
 var database = require("../database/config");
 
-function listar() {
+function listar(idUsuario) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
-    
+    //LISTANDO POSTS DE ACORDO COM O ID DO USUARIO E NA MESMA LISTAGEM VC FAZ A REQUISIÇÃO DE QUEM CURTIU OU NÃO
     var instrucao = `
-    SELECT * 
-        from igreja i 
-            join usuario u on i.idIgreja = u.fkIgreja
-                join posts p on u.idUsuario = p.fkUsuario 
-                    order by dataAnuncio desc;
-    
+        SELECT i.*,u.*,p.*, COUNT(it.fkPosts) as curtidas, 
+            case when itUserLogado.fkUsuario is not null then 1 else 0 end as curtiu
+                from igreja i 
+                    join usuario u on i.idIgreja = u.fkIgreja
+                        join posts p on u.idUsuario = p.fkUsuario
+                        left join interacao it on p.idPosts = it.fkPosts   
+                            left join interacao itUserLogado on p.idPosts = itUserLogado.fkPosts and itUserLogado. fkUsuario = ${idUsuario}
+                                GROUP BY it.fkPosts
+                                    order by p.dataAnuncio desc;
+            
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
