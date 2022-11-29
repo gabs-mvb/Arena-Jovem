@@ -258,3 +258,37 @@
 .openClose:hover{
   transform: rotate(45deg);
 }
+.categorias {
+  display: flex;
+  position: fixed;
+  top: 30%;
+  right: 2.5%;
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 17.5px;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.categorias a {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  list-style: none;
+  color: #022875;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  margin-left: 0.5vw;
+  padding: 5px;
+  transition: 0.4s;
+  padding-right: 2px;
+  justify-content: space-between;
+}
+
+.categorias a:hover {
+  transform: translateY(-4px);
+  color: #00194C;
+  border: rgba(0, 0, 0, 0.10);
+  border-radius: 9px;
+  width: 100%;
+}

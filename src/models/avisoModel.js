@@ -12,7 +12,7 @@ function listar(idUsuario) {
                         left join interacao it on p.idPosts = it.fkPosts   
                             left join interacao itUserLogado on p.idPosts = itUserLogado.fkPosts and itUserLogado. fkUsuario = ${idUsuario}
                                 GROUP BY it.fkPosts
-                                    order by p.dataAnuncio desc;
+                                    order by p.dataAnuncio asc;
             
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -30,7 +30,7 @@ function listarMaisCurtidas(idUsuario) {
                         left join interacao it on p.idPosts = it.fkPosts   
                             left join interacao itUserLogado on p.idPosts = itUserLogado.fkPosts and itUserLogado. fkUsuario = ${idUsuario}
                                 GROUP BY it.fkPosts
-                                    order by curtidas;
+                                    order by curtidas desc;
             
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
